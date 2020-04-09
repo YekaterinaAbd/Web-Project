@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="header">
+
+  </div>
+  <div class="main">
+    <div class="row">
+      <div class="left col-lg-4">
+        <div class="photo-left">
+          <img class="photo"
+             src="https://images.vexels.com/media/users/3/135606/isolated/preview/b474b5c5c7ac007448c0111ac3a3eb29-cat-face-round-icon-by-vexels.png"
+          />
+        </div>
+
+
+        <div class="info">
+          <h4 class="name">Name</h4>
+          <h4 class="name">Email</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <button class="add" (click)="showFieldset('fieldset')">Add course file</button>
+
+  <form class="add_file">
+    <fieldset id="fieldset">
+
+      <label for="courses">Course name:</label>
+      <input class="inputSubmit" list="courses" name="course"><br>
+      <datalist id="courses">
+        <option *ngFor="let course of courses" value={{course.name}}>
+      </datalist>
+
+      <label for="myfile" >Select a file:
+      <input type="file" id="myfile" name="myfile" accept="application/pdf"><br>
+      </label>
+
+      <button class="submitBtn">Submit</button>
+
+    </fieldset>
+  </form>
+
+  <button (click)="showFieldset('linkfield')">Add Course Link</button>
+
+  <form class="add_file">
+    <fieldset id="linkfield"style="display: none">
+
+      <label for="courses">Course name:</label>
+      <input class="inputSubmit"  list="coursess" name="course"><br>
+      <datalist id="coursess" >
+        <option *ngFor="let course of courses" value={{course.name}}>
+      </datalist>
+
+
+      <label for="mylink" style="margin-left: 10px">Paste a link: </label>
+      <input type="text" class="inputSubmit" id="mylink" name="mylink" style="margin-top: 20px"><br>
+
+
+      <label for="description">Add some description:
+      <textarea  id="description" name="description" ></textarea><br>
+      </label>
+
+      <button class="submitBtn" style="margin-top: 30px">Submit</button>
+    </fieldset>
+  </form>
+</div>
