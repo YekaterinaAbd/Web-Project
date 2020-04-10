@@ -45,13 +45,13 @@ button{
   height: 45px;
   color: white;
   font-size: 13px;
-margin-bottom: 5%;
+margin-bottom: 15%;
 }
 .container {
   display: flex;
   flex-direction: column;
   max-width: 1250px;
-  min-height: 600px;
+height: 100%;
   margin: 40px auto 30px;
   width: 70%;
   background-color: #fff;
