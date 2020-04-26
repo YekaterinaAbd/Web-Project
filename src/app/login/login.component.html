@@ -2,17 +2,17 @@
 
 
 
-  <div class="box">
+  <div class="box" *ngIf="loginService.getLogged() == false">
 
-  <div class="text_box"><p class="text">Sign in to GetFull</p></div>
-  <form action="">
-    <label for="inputEmail">Email address *</label><br>
-  <input type="email" id="inputEmail" >
-    <label for="inputPassword">Password *</label><br>
-  <input type="password" id="inputPassword" >
-  </form>
+    <div class="text_box"><p class="text">Sign in to GetFull</p></div>
+    <form action="">
+      <label for="inputEmail">Username *</label><br>
+      <input type="text" [(ngModel)]="username" id="inputEmail" name="user" >
+      <label for="inputPassword">Password *</label><br>
+      <input type="password" [(ngModel)]="password" id="inputPassword"  name="pass">
+    </form>
 
-  <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="login()">Sign in</button>
 
   </div>
 

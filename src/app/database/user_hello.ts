@@ -1,3 +1,3 @@
 export interface USER {
-    name: string;
+  name: string;
 }

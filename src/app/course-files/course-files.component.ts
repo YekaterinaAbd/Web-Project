@@ -2,10 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CourseService} from '../services/course.service';
 import {COURSE} from '../database/courses';
-import { Location } from '@angular/common';
-import {files, FILE} from '../database/files';
+import {Location} from '@angular/common';
+import {FILE} from '../database/files';
 import {NOTE} from '../database/note';
-import {LINK, links} from '../database/links';
+import {LINK} from '../database/links';
 
 @Component({
   selector: 'app-course-files',
@@ -17,23 +17,20 @@ export class CourseFilesComponent implements OnInit {
   courses: COURSE;
   files: FILE[];
   links: LINK[];
-  notes: NOTE;
+  notes: NOTE[];
+  note: string;
 
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
-              private location: Location) { }
+              private location: Location) {
+  }
 
   ngOnInit(): void {
     this.getCourse();
     this.getFiles();
-    this.getLinks()
-  }
-
-  getCourse(): void {
-    const name = this.route.snapshot.paramMap.get('name');
-    this.courseService.getCourse(name)
-      .subscribe(courses => this.courses = courses);
+    this.getLinks();
+    this.getNotes();
   }
 
   getFiles(): void {
@@ -44,6 +41,29 @@ export class CourseFilesComponent implements OnInit {
   getLinks(): void {
     const name = this.route.snapshot.paramMap.get('name');
     this.courseService.getCourseLinks(name).subscribe(links => this.links = links);
+  }
+
+  getCourse(): void {
+    const name = this.route.snapshot.paramMap.get('name');
+    this.courseService.getCourse(name)
+      .subscribe(courses => this.courses = courses);
+  }
+
+  updateCourse(): void {
+    this.courseService.updateCourse(this.courses)
+      .subscribe(() => alert('renamed to ' + this.courses.name));
+  }
+
+  getNotes(): void {
+    const name = this.route.snapshot.paramMap.get('name');
+    this.courseService.getCourseNotes(name)
+      .subscribe(notes => this.notes = notes);
+  }
+
+  addNote(): void {
+    this.courseService.addNote({note: this.note, course: this.courses.short_name})
+      .subscribe(note => this.notes.push(note));
+    (document.getElementById('notes') as HTMLInputElement).value = null;
   }
 
   goBack(): void {

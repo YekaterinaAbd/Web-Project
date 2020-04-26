@@ -1,3 +1,4 @@
 export interface NOTE {
-    name: string;
+  note: string;
+  course: string;
 }

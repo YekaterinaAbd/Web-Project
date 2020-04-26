@@ -1,12 +1,12 @@
 
-.add_file{
+.add_file {
   position: relative;
   width: 50%;
   margin: auto auto;
 
 }
 
-fieldset{
+fieldset {
   display: none;
   padding-top: 20px;
   padding-left: 20%;
@@ -14,6 +14,7 @@ fieldset{
   border: 1px solid gray;
 
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@ fieldset{
   padding: 0 !important;
   width: 90%;
   background-color: #fff;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.10);
   border-radius: 5px;
 }
 
@@ -49,11 +50,11 @@ fieldset{
   background-color: white;
 }
 
-.photo-left{
+.photo-left {
   float: left;
 }
 
-.info{
+.info {
   margin-left: 30%;
 
 }
@@ -65,7 +66,7 @@ fieldset{
   color: black;
 }
 
-.choose{
+.choose {
   margin-top: 17%;
   margin-left: 35%;
 }
@@ -102,7 +103,47 @@ fieldset{
   pointer-events: none;
 }
 
-button{
+
+.inputSubmit {
+  border: 1px solid #758799;
+  border-radius: 4px;
+  width: 50%;
+  height: 35px;
+  padding-left: 5px;
+  color: #5a6c7e;
+}
+
+#myfile {
+  margin: 2% 5% 4%;
+  height: 35px;
+  padding-left: 1%;
+}
+
+label {
+  color: #5a6c7e;
+  margin-right: 10px;
+}
+
+.legend {
+  text-align: center;
+}
+
+.submitBtn {
+  margin: 0 25% 20px;
+}
+
+textarea {
+  margin-top: 20px;
+  border: 1px solid #758799;
+  border-radius: 4px;
+  height: 50px;
+  width: 38%;
+  padding-left: 5px;
+  color: #5a6c7e;
+
+}
+
+button {
   border: 1px solid #758799;
   background-color: #758799;
   border-radius: 5px;
@@ -111,43 +152,4 @@ button{
   color: white;
   font-size: 13px;
   margin: auto auto 40px;
-
-}
-
-.inputSubmit{
-  border: 1px solid #758799;
-  border-radius: 4px;
-  width: 50%;
-  height: 35px;
-  padding-left: 5px;
-  color:#5a6c7e;
-}
-#myfile{
-  margin: 2% 5% 4%;
-  height: 35px;
-  padding-left: 1%;
-}
-
-label{
-  color:#5a6c7e;
-  margin-right: 10px;
-}
-
-.legend{
-  text-align: center;
-}
-
-.submitBtn{
-  margin: 0 25% 20px;
-}
-
-textarea{
-  margin-top: 20px;
-  border: 1px solid #758799;
-  border-radius: 4px;
-  height: 50px;
-  width: 38%;
-  padding-left: 5px;
-  color:#5a6c7e;
-
 }

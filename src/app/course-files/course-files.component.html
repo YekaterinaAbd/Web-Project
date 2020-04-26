@@ -1,6 +1,3 @@
-
-
-
 <div *ngIf="courses" class="title">
   <div class="book">
     <img src="https://img.icons8.com/plasticine/100/000000/books.png"/>
@@ -9,30 +6,30 @@
 </div>
 
 
-
 <div *ngIf="courses" class="subtitle">
   <label>
+    <button  (click)="updateCourse()">Save</button>
     Change course name:
-    <input [(ngModel)]="courses.name" placeholder=" Type course name" />
-  </label>
-</div>
+    <input [(ngModel)]="courses.name" placeholder=" Type course name"/>
 
+  </label>
+
+</div>
 
 <div class="subtitle">
   <h4>Files</h4>
 </div>
 
-
 <div class="list">
   <div *ngFor="let file of files" class="file">
     <hr class="line">
-    <a routerLink="/course/{{file.course_name}}/{{file.id}}">
+    <!--    <a routerLink="/course/{{file.course}}/{{file.name}}">-->
+    <a href="http://127.0.0.1:8000{{file.file}}" target="_blank">
       <img class="bookimg" src="https://img.icons8.com/offices/2x/folder-invoices.png"/>
       <p class="paragraph"> {{file.name}}</p>
     </a>
   </div>
 </div>
-
 
 <div class="subtitle">
   <h4>Links</h4>
@@ -42,7 +39,7 @@
 <div class="list">
   <div *ngFor="let link of links" class="file">
     <hr class="line">
-    <img class="bookimg" src="https://img.icons8.com/color/48/000000/tentacles.png"style="margin-top: 3px"/>
+    <img class="bookimg" src="https://img.icons8.com/color/48/000000/tentacles.png" style="margin-top: 3px"/>
 
     <a href='{{link.link}}' target="_blank" class="linksa">
       {{link.name}}
@@ -53,11 +50,28 @@
 </div>
 
 
-
 <div class="notes">
-  <label > Your notes: <br>
-    <textarea type = "text" [(ngModel)]="notes" placeholder=" Type your notes"></textarea>
+  <label> Your notes: <br>
+    <textarea type="text" id="notes" name="notes" [(ngModel)]="note" placeholder=" Type your notes"></textarea>
   </label>
+
 </div>
+<button class="save_btn" (click)="addNote()">Save</button>
+
+
+
+<div class="list">
+  <div *ngFor="let note of notes">
+    <hr class="line" style="margin-top: 20px">
+
+    <p class="linksa">
+      {{note.note}}
+    </p>
+
+  </div>
+</div>
+
+
+
 
 <button (click)="goBack()">Go back</button>

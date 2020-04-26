@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -11,9 +11,10 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CourseFilesComponent } from './course-files/course-files.component';
 import { FilePDFComponent } from './file-pdf/file-pdf.component';
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { AccountComponent } from './account/account.component';
+import {FileInputAccessorModule} from 'file-input-accessor';
 
 
 @NgModule({
@@ -33,7 +34,10 @@ import { AccountComponent } from './account/account.component';
     BrowserModule,
     AppRoutingModule,
     NgxExtendedPdfViewerModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FileInputAccessorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

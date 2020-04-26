@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {files, FILE} from '../database/files';
+import {FILE} from '../database/files';
 import {ActivatedRoute} from '@angular/router';
 import {CourseService} from '../services/course.service';
 import {Location} from '@angular/common';
@@ -17,14 +17,14 @@ export class FilePDFComponent implements OnInit {
               private location: Location) { }
 
   ngOnInit(): void {
-    this.getFile();
+    // this.getFile();
   }
 
-  getFile(): void {
-    this.route.paramMap.subscribe(params => {
-      this.file = files[+params.get('id')];
-    });
-  }
+  // getFile(): void {
+  //   this.route.paramMap.subscribe(params => {
+  //     this.file = files[+params.get('id')];
+  //   });
+  // }
 
   goBack(): void {
     this.location.back();

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {COURSE} from '../database/courses';
 import {CourseService} from '../services/course.service';
-import {USER} from '../database/user_hello'
+import {USER} from '../database/user_hello';
 
 @Component({
   selector: 'app-courses-list',
@@ -11,8 +11,11 @@ import {USER} from '../database/user_hello'
 export class CoursesListComponent implements OnInit {
 
   courses: COURSE[];
-  constructor(private courseService: CourseService) { }
-  user: any
+
+  constructor(private courseService: CourseService) {
+  }
+
+  user: any;
 
   ngOnInit(): void {
     this.getCourses();

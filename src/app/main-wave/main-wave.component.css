@@ -4,14 +4,14 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(83vh);
+  height: calc(100vh);
   margin-top: 1%;
   overflow: scroll;
   width: 100%;
 }
 
 .center h3{
-  padding-top: 15%;
+  padding-top: 10%;
   color: whitesmoke;
   font-size: 60px;
   font-weight: bold;
@@ -54,7 +54,7 @@
   width: 50%;
   padding-top: 25%;
   padding-left: 25%;
-  padding-bottom: 35vh;
+  padding-bottom: 20%;
   text-align: center;
 }
 
