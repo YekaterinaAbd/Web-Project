@@ -4,6 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import generics, status, viewsets, permissions
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_jwt.serializers import User
@@ -23,8 +24,9 @@ class Files(generics.ListCreateAPIView):
 
 
 class Notes(generics.ListCreateAPIView):
-    queryset = Note.objects.all()
-    serializer_class = NoteSerializer
+  queryset = Note.objects.all()
+  serializer_class = NoteSerializer
+  permission_classes = (IsAuthenticated,)
 
 
 class Links(generics.ListCreateAPIView):
