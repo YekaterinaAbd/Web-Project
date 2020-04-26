@@ -50,15 +50,16 @@
 </div>
 
 
-<div class="notes">
-  <label> Your notes: <br>
-    <textarea type="text" id="notes" name="notes" [(ngModel)]="note" placeholder=" Type your notes"></textarea>
+<div class="notes" *ngIf="loginService.logged">
+  <label> Add a comment: <br>
+    <textarea [(ngModel)]="note" id="notes" name="notes" placeholder=" Type your notes" type="text"></textarea>
   </label>
-
+  <button (click)="addNote()" class="save_btn">Save</button>
 </div>
-<button class="save_btn" (click)="addNote()">Save</button>
 
-
+<div class="subtitle">
+  <h4>Comments</h4>
+</div>
 
 <div class="list">
   <div *ngFor="let note of notes">

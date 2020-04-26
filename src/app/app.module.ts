@@ -15,6 +15,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { AccountComponent } from './account/account.component';
 import {FileInputAccessorModule} from 'file-input-accessor';
+import {AuthInterceptor} from './auth.interceptor';
 
 
 @NgModule({
@@ -39,7 +40,13 @@ import {FileInputAccessorModule} from 'file-input-accessor';
     ReactiveFormsModule,
     FileInputAccessorModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

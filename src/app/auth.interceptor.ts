@@ -1,6 +1,6 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { Observable } from "rxjs/internal/Observable";
-import { Injectable } from "@angular/core";
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('token');
     if (token) {
       const authReq = req.clone({
-        headers: req.headers.append('Authorization', `JWT ${token}`)
+        headers: req.headers.set('Authorization', `JWT ${token}`)
       });
       return next.handle(authReq);
     }

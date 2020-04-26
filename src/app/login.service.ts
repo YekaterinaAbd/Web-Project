@@ -9,7 +9,7 @@ import {LoginResponse} from './models';
 })
 export class LoginService {
   BASE_URL = 'http://127.0.0.1:8000';
-
+  username;
   constructor(private http: HttpClient) {
   }
 
@@ -24,9 +24,14 @@ export class LoginService {
   }
 
   login(username, password): Observable<LoginResponse> {
+    this.username = username;
     return this.http.post<LoginResponse>(`${this.BASE_URL}/api/login/`, {
       username,
       password
     });
+  }
+
+  getUsername(): string{
+    return this.username;
   }
 }

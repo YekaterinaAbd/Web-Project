@@ -17,12 +17,18 @@ export class AccountComponent implements OnInit {
   // logged = false;
   courses: COURSE[];
   file: File = null;
+  username;
 
-  constructor(private courseService: CourseService, private http: HttpClient, private router: Router, private loginService: LoginService) {
+  constructor(private courseService: CourseService, private http: HttpClient, private router: Router, public loginService: LoginService) {
   }
 
   ngOnInit(): void {
     this.getCourses();
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.username = this.loginService.getUsername();
+    }
+
   }
 
   getCourses(): void {

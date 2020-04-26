@@ -6,6 +6,7 @@ import {Location} from '@angular/common';
 import {FILE} from '../database/files';
 import {NOTE} from '../database/note';
 import {LINK} from '../database/links';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-course-files',
@@ -23,7 +24,8 @@ export class CourseFilesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
-              private location: Location) {
+              private location: Location,
+              public loginService: LoginService) {
   }
 
   ngOnInit(): void {

@@ -12,9 +12,8 @@
         </div>
 
 
-        <div class="info">
-          <h4 class="name">Name</h4>
-          <h4 class="name">Email</h4>
+        <div class="info" *ngIf="loginService.getLogged() == true">
+          <h4 class="name"> {{username}}</h4>
         </div>
 
       </div>
